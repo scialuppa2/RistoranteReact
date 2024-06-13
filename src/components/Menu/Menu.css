@@ -1,0 +1,11 @@
+.small-carousel {
+    max-width: 600px; /* Imposta la larghezza desiderata */
+    margin: 0 auto; /* Centra il carousel orizzontalmente */
+  }
+  
+  .fixed-size {
+    width: 600px; /* Larghezza fissa */
+    height: 400px; /* Altezza fissa */
+    object-fit: cover; /* Assicura che l'immagine riempia il contenitore mantenendo il rapporto d'aspetto */
+  }
+  

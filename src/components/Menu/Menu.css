@@ -1,11 +1,21 @@
-.small-carousel {
-    max-width: 600px; /* Imposta la larghezza desiderata */
-    margin: 0 auto; /* Centra il carousel orizzontalmente */
-  }
-  
-  .fixed-size {
-    width: 600px; /* Larghezza fissa */
-    height: 400px; /* Altezza fissa */
-    object-fit: cover; /* Assicura che l'immagine riempia il contenitore mantenendo il rapporto d'aspetto */
-  }
-  
+.card-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  height: 20rem;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 600px; /* Altezza fissa per tutte le card */
+}
+
+.card img {
+  height: 200px; /* Imposta l'altezza desiderata per le immagini */
+  object-fit: cover; /* Assicura che l'immagine si adatti bene alla card */
+}
+
+.card-body .btn {
+  margin-right: 10px; /* Aggiungi il margine desiderato tra i pulsanti */
+}

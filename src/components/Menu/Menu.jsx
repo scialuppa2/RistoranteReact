@@ -1,21 +1,17 @@
 import React from 'react';
 import './Menu.css';
 
-function Menu({ card, onDelete, onRestoreAll, onRestorePrimi, onRestoreSecondi, onOrdina }) {
+function Menu({ card, onDelete, onRestore, onOrdina }) {
   const handleDelete = id => {
     onDelete(id);
   };
 
   const handleRestoreAll = () => {
-    onRestoreAll();
+    onRestore();
   };
 
-  const handleRestorePrimi = () => {
-    onRestorePrimi();
-  };
-
-  const handleRestoreSecondi = () => {
-    onRestoreSecondi();
+  const handleRestoreCategoria = categoria => {
+    onRestore(categoria);
   };
 
   const handleOrdina = (piatto) => {
@@ -43,8 +39,8 @@ function Menu({ card, onDelete, onRestoreAll, onRestorePrimi, onRestoreSecondi, 
       </div>
       <div className="mt-3">
         <button className="btn btn-success me-2" onClick={handleRestoreAll}>Ripristina tutti i piatti</button>
-        <button className="btn btn-success me-2" onClick={handleRestorePrimi}>Ripristina i primi</button>
-        <button className="btn btn-success" onClick={handleRestoreSecondi}>Ripristina i secondi</button>
+        <button className="btn btn-success me-2" onClick={() => handleRestoreCategoria('primo')}>Ripristina i primi</button>
+        <button className="btn btn-success" onClick={() => handleRestoreCategoria('secondo')}>Ripristina i secondi</button>
       </div>
     </div>
   );

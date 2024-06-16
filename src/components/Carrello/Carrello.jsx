@@ -1,8 +1,13 @@
 import React from 'react';
 
-function Carrello({ carrello, onIncrement, onDecrement, onRemove }) {
+function Carrello({ carrello, onIncrement, onDecrement, onRemove, onSvuota }) {
   const calcolaTotale = () => {
     return carrello.reduce((totale, piatto) => totale + (piatto.prezzo * piatto.quantita), 0).toFixed(2);
+  };
+
+  const confermaOrdine = () => {
+    alert('Ordine confermato! In preparazione...');
+    onSvuota();
   };
 
 
@@ -29,7 +34,8 @@ function Carrello({ carrello, onIncrement, onDecrement, onRemove }) {
       </ul>
       <div className="card-footer text-end">
         <h5>Totale: €{calcolaTotale()}</h5>
-        <button className="btn btn-success mt-2" onClick={alert('Ordine riuscito!')}>Conferma</button>
+        <button className="btn btn-success mt-2" onClick={confermaOrdine}>Conferma ordine</button>
+        <button className="btn btn-danger mt-2 ms-2" onClick={onSvuota}>Svuota carrello</button>
       </div>
     </div>
   );

@@ -91,27 +91,12 @@ class App3Cs extends Component {
     this.setState({ Piatti: updatedPiatti });
   };
 
-  ripristina_dish = () => {
-    const updatedPiatti = this.state.Piatti.map((piatto) => ({
-      ...piatto,
-      deleted: false,
-    }));
-    this.setState({ Piatti: updatedPiatti });
-  };
-
-  ripristina_primi = () => {
-    const updatedPiatti = this.state.Piatti.map((piatto) =>
-      piatto.categoria === "primo" ? { ...piatto, deleted: false } : piatto
+  ripristina_dish = (categoria = null) => {
+    const updatedPiatti = this.state.Piatti.map(piatto =>
+      !categoria || piatto.categoria === categoria ? { ...piatto, deleted: false } : piatto
     );
     this.setState({ Piatti: updatedPiatti });
-  };
-
-  ripristina_secondi = () => {
-    const updatedPiatti = this.state.Piatti.map((piatto) =>
-      piatto.categoria === "secondo" ? { ...piatto, deleted: false } : piatto
-    );
-    this.setState({ Piatti: updatedPiatti });
-  };
+  }
 
   ordina_piatto = (piatto) => {
     const { carrello } = this.state;
@@ -158,6 +143,10 @@ class App3Cs extends Component {
     }
   };
 
+  svuotaCarrello = () => {
+    this.setState({ carrello: [] });
+  }
+
   render() {
     const { Piatti, carrello } = this.state;
     const displayedPiatti = Piatti.filter((piatto) => !piatto.deleted);
@@ -176,9 +165,7 @@ class App3Cs extends Component {
               <Menu
                 card={displayedPiatti}
                 onDelete={this.delete_dish}
-                onRestoreAll={() => this.ripristina_dish()}
-                onRestorePrimi={this.ripristina_primi}
-                onRestoreSecondi={this.ripristina_secondi}
+                onRestore={this.ripristina_dish}
                 onOrdina={this.ordina_piatto}
               />
             </div>
@@ -188,6 +175,7 @@ class App3Cs extends Component {
                 onIncrement={this.incrementa_quantita}
                 onDecrement={this.decrementa_quantita}
                 onRemove={this.rimuovi_piatto}
+                onSvuota={this.svuotaCarrello}
               />
             </div>
           </div>

@@ -9,8 +9,12 @@ import Piatti from "./data/piatti.json";
 class App3Cs extends Component {
   state = {
     Piatti: Piatti,
-    carrello: [],
+    carrello: JSON.parse(localStorage.getItem("carrello")) || [], // Carica il carrello salvato o un array vuoto
   };
+
+  componentDidUpdate() {
+    localStorage.setItem("carrello", JSON.stringify(this.state.carrello)); // Salva il carrello nel localStorage
+  }
 
   delete_dish = (id_to_del) => {
     const updatedPiatti = this.state.Piatti.map((piatto) =>
@@ -29,18 +33,19 @@ class App3Cs extends Component {
   };
 
   ordina_piatto = (piatto) => {
-    this.setState((prevState) => {
-      const carrello = [...prevState.carrello];
-      const indicePiatto = carrello.findIndex((item) => item.id === piatto.id);
-
-      if (indicePiatto !== -1) {
-        carrello[indicePiatto].quantita++;
-      } else {
-        carrello.push({ ...piatto, quantita: 1 });
-      }
-
-      return { carrello };
-    });
+    const { carrello } = this.state;
+    const indicePiatto = carrello.findIndex((item) => item.id === piatto.id);
+    if (indicePiatto !== -1) {
+      // Se il piatto è già nel carrello, incrementa la quantità
+      const nuovoCarrello = [...carrello];
+      nuovoCarrello[indicePiatto].quantita++;
+      this.setState({ carrello: nuovoCarrello });
+    } else {
+      // Altrimenti, aggiungi il piatto al carrello con quantità 1
+      this.setState((prevState) => ({
+        carrello: [...prevState.carrello, { ...piatto, quantita: 1 }],
+      }));
+    }
   };
 
   rimuovi_piatto = (piatto) => {
@@ -80,40 +85,34 @@ class App3Cs extends Component {
 
     return (
       <Router>
-        <div className="App">
-          <Routes>
-            {/* Route principale con Layout, MyNavbar e MyFooter */}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Layout
+                carrello={carrello}
+                onIncrement={this.incrementa_quantita}
+                onDecrement={this.decrementa_quantita}
+                onRemove={this.rimuovi_piatto}
+                onSvuota={this.svuotaCarrello}
+              />
+            }
+          >
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
             <Route
-              path="/"
+              path="menu"
               element={
-                <Layout
-                  carrello={carrello}
-                  onIncrement={this.incrementa_quantita}
-                  onDecrement={this.decrementa_quantita}
-                  onRemove={this.rimuovi_piatto}
-                  onSvuota={this.svuotaCarrello}
+                <Menu
+                  card={displayedPiatti}
+                  onDelete={this.delete_dish}
+                  onRestore={this.ripristina_dish}
+                  onOrdina={this.ordina_piatto}
                 />
               }
-            >
-              {/* Route per Home */}
-              <Route path="/" element={<Home />} />
-              <Route path="/home" element={<Home />} />
-              
-              {/* Route per Menu */}
-              <Route
-                path="menu"
-                element={
-                  <Menu
-                    card={displayedPiatti}
-                    onDelete={this.delete_dish}
-                    onRestore={this.ripristina_dish}
-                    onOrdina={this.ordina_piatto}
-                  />
-                }
-              />
-            </Route>
-          </Routes>
-        </div>
+            />
+          </Route>
+        </Routes>
       </Router>
     );
   }

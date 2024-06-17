@@ -1,0 +1,90 @@
+/* MyNavbar.css o un nuovo file CSS dedicato */
+
+/* Stili per il modal */
+.modal-content {
+    background-color: #f8f9fa; /* Colore di sfondo del modal */
+  }
+  
+  .modal-header {
+    border-bottom: none; /* Rimuove la linea di separazione nel header */
+    padding-bottom: 0.5rem; /* Spaziatura inferiore ridotta */
+  }
+  
+  .modal-footer {
+    border-top: none; /* Rimuove la linea di separazione nel footer */
+    padding-top: 0.5rem; /* Spaziatura superiore ridotta */
+  }
+  
+  .carrello-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .carrello-img {
+    width: 80px; /* Dimensione dell'immagine */
+    height: 80px;
+    object-fit: cover; /* Mantiene l'aspetto dell'immagine */
+    border-radius: 4px; /* Bordo arrotondato */
+    margin-right: 1rem; /* Spaziatura a destra */
+  }
+  
+  .carrello-details {
+    flex: 1; /* Occupa lo spazio rimanente */
+  }
+  
+  .carrello-details h5 {
+    margin-bottom: 0.5rem; /* Spaziatura inferiore ridotta per il titolo */
+  }
+  
+  .carrello-details p {
+    margin-bottom: 0.25rem; /* Spaziatura inferiore ridotta per il testo */
+  }
+  
+  .carrello-details button {
+    margin-right: 0.5rem; /* Spaziatura destra tra i pulsanti */
+  }
+  
+  .carrello-totale {
+    font-weight: bold; /* Testo in grassetto per il totale */
+    margin-top: 0.5rem; /* Spaziatura superiore aggiunta */
+  }
+  
+  /* Stili per i pulsanti */
+  .btn-primary,
+  .btn-secondary,
+  .btn-danger {
+    padding: 0.3rem 0.75rem; /* Padding interno dei pulsanti */
+    font-size: 0.875rem; /* Dimensione del testo */
+  }
+  
+  .btn-primary {
+    background-color: #007bff; /* Colore di sfondo pulsante primario */
+    border-color: #007bff; /* Colore del bordo */
+  }
+  
+  .btn-primary:hover {
+    background-color: #0069d9; /* Colore di sfondo al passaggio del mouse */
+    border-color: #0062cc; /* Colore del bordo al passaggio del mouse */
+  }
+  
+  .btn-secondary {
+    background-color: #6c757d; /* Colore di sfondo pulsante secondario */
+    border-color: #6c757d; /* Colore del bordo */
+  }
+  
+  .btn-secondary:hover {
+    background-color: #5a6268; /* Colore di sfondo al passaggio del mouse */
+    border-color: #545b62; /* Colore del bordo al passaggio del mouse */
+  }
+  
+  .btn-danger {
+    background-color: #dc3545; /* Colore di sfondo pulsante pericoloso */
+    border-color: #dc3545; /* Colore del bordo */
+  }
+  
+  .btn-danger:hover {
+    background-color: #c82333; /* Colore di sfondo al passaggio del mouse */
+    border-color: #bd2130; /* Colore del bordo al passaggio del mouse */
+  }
+  

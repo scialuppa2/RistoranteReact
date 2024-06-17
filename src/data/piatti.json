@@ -70,6 +70,78 @@
       "categoria": "secondi",
       "prezzo": 15.5,
       "deleted": false
+    },
+    {
+      "id": 10,
+      "name": "Saltimbocca alla romana",
+      "image": "/assets/saltimbocca.jpg",
+      "categoria": "secondi",
+      "prezzo": 14.5,
+      "deleted": false
+    },
+    {
+      "id": 11,
+      "name": "Baccalà in umido",
+      "image": "/assets/baccala.jpg",
+      "categoria": "secondi",
+      "prezzo": 14.5,
+      "deleted": false
+    },
+    {
+      "id": 12,
+      "name": "Tagliata di manzo",
+      "image": "/assets/tagliata.jpg",
+      "categoria": "secondi",
+      "prezzo": 17.5,
+      "deleted": false
+    },
+    {
+      "id": 13,
+      "name": "Patate al forno",
+      "image": "/assets/patate.jpg",
+      "categoria": "contorni",
+      "prezzo": 5.5,
+      "deleted": false
+    },
+    {
+      "id": 14,
+      "name": "Cicoria ripassata",
+      "image": "/assets/cicoria.jpg",
+      "categoria": "contorni",
+      "prezzo": 5.5,
+      "deleted": false
+    },
+    {
+      "id": 15,
+      "name": "Carciofi alla giudia",
+      "image": "/assets/carciofi.jpg",
+      "categoria": "contorni",
+      "prezzo": 5.5,
+      "deleted": false
+    },
+    {
+      "id": 16,
+      "name": "Panna cotta",
+      "image": "/assets/pannacotta.jpg",
+      "categoria": "dolci",
+      "prezzo": 6.0,
+      "deleted": false
+    },
+    {
+      "id": 17,
+      "name": "Tiramisù",
+      "image": "/assets/tiramisu.jpg",
+      "categoria": "dolci",
+      "prezzo": 6.0,
+      "deleted": false
+    },
+    {
+      "id": 18,
+      "name": "Tortino al cioccolato",
+      "image": "/assets/tortino.jpg",
+      "categoria": "dolci",
+      "prezzo": 6.0,
+      "deleted": false
     }
   ]
   

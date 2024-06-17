@@ -6,9 +6,9 @@ const CardCategoria = ({ categoria, onClick }) => {
   const getImageName = (categoria) => {
     switch (categoria) {
       case "primi":
-        return "gricia.jpg";
+        return "primi.jpg";
       case "secondi":
-        return "maialino.jpg";
+        return "secondi.jpg";
       case "contorni":
         return "contorni.jpg";
       case "dolci":

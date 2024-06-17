@@ -1,0 +1,75 @@
+[
+    {
+      "id": 1,
+      "name": "Spaghetti alla Carbonara",
+      "image": "/assets/carbonara.jpg",
+      "categoria": "primi",
+      "prezzo": 10.0,
+      "deleted": false
+    },
+    {
+      "id": 2,
+      "name": "Fusilli con pesto di Zucchine",
+      "image": "/assets/zucchine.jpg",
+      "categoria": "primi",
+      "prezzo": 9.0,
+      "deleted": false
+    },
+    {
+      "id": 3,
+      "name": "Spaghetti Cremosi",
+      "image": "/assets/cremosa.jpg",
+      "categoria": "primi",
+      "prezzo": 11.0,
+      "deleted": false
+    },
+    {
+      "id": 4,
+      "name": "Tonnarelli Piselli e Pancetta",
+      "image": "/assets/piselli&pancetta.jpg",
+      "categoria": "primi",
+      "prezzo": 12.0,
+      "deleted": false
+    },
+    {
+      "id": 5,
+      "name": "Rigatoni alla gricia",
+      "image": "/assets/gricia.jpg",
+      "categoria": "primi",
+      "prezzo": 10.5,
+      "deleted": false
+    },
+    {
+      "id": 6,
+      "name": "Gnocchi di Armando",
+      "image": "/assets/gnocchi.jpg",
+      "categoria": "primi",
+      "prezzo": 9.5,
+      "deleted": false
+    },
+    {
+      "id": 7,
+      "name": "Pollo alla cacciatora",
+      "image": "/assets/pollo.jpg",
+      "categoria": "secondi",
+      "prezzo": 15.0,
+      "deleted": false
+    },
+    {
+      "id": 8,
+      "name": "Arrosto di vitello",
+      "image": "/assets/arrosto.jpg",
+      "categoria": "secondi",
+      "prezzo": 16.5,
+      "deleted": false
+    },
+    {
+      "id": 9,
+      "name": "Maialino al forno",
+      "image": "/assets/maialino.jpg",
+      "categoria": "secondi",
+      "prezzo": 15.5,
+      "deleted": false
+    }
+  ]
+  

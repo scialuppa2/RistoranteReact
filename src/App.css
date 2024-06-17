@@ -3,7 +3,7 @@
 body{
   font-family: "Noto Serif", serif;
   background: rgb(195,193,8);
-background: linear-gradient(65deg, rgba(195,193,8,1) 0%, rgba(255,128,0,1) 61%);
+  background: linear-gradient(65deg, rgba(195,193,8,1) 0%, rgba(255,128,0,1) 61%);
 }
 
 h1{
@@ -17,3 +17,11 @@ img{
   height: 500px;
 }
 
+.sidebar {
+  position: sticky;
+  right: 0;
+  top: 0;
+  padding: 10px;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+  overflow-y: auto;
+}

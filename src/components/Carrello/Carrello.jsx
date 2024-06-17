@@ -1,13 +1,18 @@
 import React from 'react';
 
 function Carrello({ carrello, onIncrement, onDecrement, onRemove, onSvuota }) {
+  
   const calcolaTotale = () => {
     return carrello.reduce((totale, piatto) => totale + (piatto.prezzo * piatto.quantita), 0).toFixed(2);
   };
 
   const confermaOrdine = () => {
-    alert('Ordine confermato! In preparazione...');
-    onSvuota();
+    if (carrello.length === 0) {
+      alert('Non è stato effettuato nessun ordine. Aggiungi almeno un piatto prima di confermare!');
+    } else {
+      alert('Ordine confermato! In preparazione...');
+      onSvuota();
+    }
   };
 
 

@@ -1,49 +1,52 @@
-import React from 'react';
-import './Menu.css';
+// Menu.jsx
+import React, { useState } from "react";
+import CardPiatto from "../CardPiatto/CardPiatto";
+import CardCategoria from "../CardCategoria/CardCategoria";
 
-function Menu({ card, onDelete, onRestore, onOrdina }) {
-  const handleDelete = id => {
-    onDelete(id);
+const Menu = ({ card, onDelete, onOrdina, onRestore }) => {
+  const [selectedCategoria, setSelectedCategoria] = useState(null);
+
+  const handleCategoriaClick = (categoria) => {
+    setSelectedCategoria(categoria);
   };
 
-  const handleRestoreAll = () => {
-    onRestore();
-  };
-
-  const handleRestoreCategoria = categoria => {
-    onRestore(categoria);
-  };
-
-  const handleOrdina = (piatto) => {
-    onOrdina(piatto);
-  };
+  // Filtra i piatti in base alla categoria selezionata
+  const piattiCategoria = selectedCategoria
+    ? card.filter((piatto) => piatto.categoria === selectedCategoria)
+    : [];
 
   return (
-    <div className="container">
-      <h2>Il nostro Menù: cosa desideri ordinare?</h2>
+    <div className="menu">
+      <h2>Il nostro Menu: che cosa vuoi ordinare?</h2>
       <div className="row">
-        {card.map((piatto) => (
-          <div key={piatto.id} className="col-md-4 mb-4">
-            <div className="card">
-            <img src={piatto.image} className="card-img-top img-fluid" alt={piatto.name} />
-              <div className="card-body">
-                <h5 className="card-title">{piatto.name}</h5>
-                <p className="card-text">Prezzo: €{piatto.prezzo.toFixed(2)}</p>
-                <button className="btn btn-primary" onClick={() => handleOrdina(piatto)}>Ordina</button>
-                <button className="btn btn-secondary">Modifica</button>
-                <button className="btn btn-danger" onClick={() => handleDelete(piatto.id)}>Elimina</button>
-              </div>
-            </div>
+        {["primi", "secondi"].map((categoria) => (
+          <div key={categoria} className="col-md-4 mb-4">
+            <CardCategoria
+              categoria={categoria}
+              onClick={() => handleCategoriaClick(categoria)}
+            />
+            <button
+              className="btn btn-secondary mt-2"
+              onClick={() => onRestore(categoria)}
+            >
+              Ripristina {categoria}
+            </button>
           </div>
         ))}
       </div>
-      <div className="mt-3">
-        <button className="btn btn-success me-2" onClick={handleRestoreAll}>Ripristina tutti i piatti</button>
-        <button className="btn btn-success me-2" onClick={() => handleRestoreCategoria('primo')}>Ripristina i primi</button>
-        <button className="btn btn-success" onClick={() => handleRestoreCategoria('secondo')}>Ripristina i secondi</button>
+
+      <div className="row">
+        {piattiCategoria.map((piatto) => (
+          <CardPiatto
+            key={piatto.id}
+            piatto={piatto}
+            onDelete={onDelete}
+            onOrdina={onOrdina}
+          />
+        ))}
       </div>
     </div>
   );
-}
+};
 
 export default Menu;

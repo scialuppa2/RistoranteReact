@@ -1,0 +1,9 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Altezza minima per coprire l'intero viewport */
+}
+
+.container-fluid {
+  flex: 1; /* Espande il contenuto per riempire lo spazio disponibile */
+}
